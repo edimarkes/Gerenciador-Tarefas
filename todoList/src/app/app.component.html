@@ -1,0 +1,53 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrum-item active" aria-current="page">
+      Gerenciamento de Tarefas
+    </li>
+  </ol>
+</nav>
+<div class="container">
+  <div class="card">
+    <h5 class="card-header">Adicionar | Atualizar Tarefas</h5>
+    <div class="card-body">
+      <form id="form" #formulario="ngForm" (submit)="formulario.form.valid && save(formulario)">
+        <div class="form-group">
+          <label>Tarefas</label>
+          <input type="text" [(ngModel)]="Tarefa.nome" class="form-control" id="model" name="model" #model="ngModel" />
+
+          </div>
+          <button type="submit" class="btn-primary" >Salvar</button>
+      </form>
+    </div>
+
+  </div>
+  <br />
+<div class="card">
+  <h5 class="card-header">Lista de Tarefas</h5>
+  <div class="card-body">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Tarefas</th>
+          <th scope="col">Ação Editar</th>
+          <th scope="col">Ação Deletar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let tarefa of Tarefas">
+        <td>{{tarefa.id}}</td>
+        <td>{{tarefa.nome}}</td>
+        <td>
+          <button type="button" class="btn-warning" (click)="edit(tarefa)">Editar</button></td>
+          <td><button type="button" class="btn-danger" (click)="edit(tarefa)">Deletar</button>
+        </td>
+      </tr>
+      </tbody>
+  </table>
+
+  </div>
+
+</div>
+
+</div>
+<!-- <router-outlet></router-outlet> -->
